@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route, Routes } from 'react-router-dom'
+import { Route, Routes, useMatch } from 'react-router-dom'
 import Home from './pages/student/Home'
 import CoursesList from './pages/student/CoursesList'
 import CourseDetails from './pages/student/CourseDetails'
@@ -11,10 +11,15 @@ import Dashboard from './pages/instructor/Dashboard'
 import AddCourse from './pages/instructor/AddCourse'
 import MyCourses from './pages/instructor/MyCourses'
 import StudInvolved from './pages/instructor/StudInvolved'
+import Navbar from './components/student/Navbar'
 
 const App=()=>{
+  const isInstructorRoute = useMatch('/instructor/*');
+// Suggested code may be subject to a license. Learn more: ~LicenseLog:2872656970.
+
   return(
-    <div>
+    <div className='text-default min-h-screen bg-white'> 
+      {!isInstructorRoute && <Navbar/>  }
       <Routes>
 {/* Suggested code may be subject to a license. Learn more: ~LicenseLog:3345638513. */}
 {/* Suggested code may be subject to a license. Learn more: ~LicenseLog:528836199. */}
